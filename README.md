@@ -18,7 +18,7 @@ you only get one___
 ---
 
 **check how the game looks like** 
-- click on the link then click on View raw
+- Click on the link then click on View raw
 [gameplay.mp4](media/gameplay.mp4)
 
 ---
@@ -32,3 +32,8 @@ you only get one___
 - Moving mouse cursor -> to move the camera
 
 ---
+
+**Godot project files**
+
+- Download this file [GameJam2023](GameJam2023)
+
