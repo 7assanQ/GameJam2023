@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnpqyrqhfuwnj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mpu7s"]
+albedo_color = Color(0.894118, 0.207843, 0.8, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ujr1n"]
+material = SubResource("StandardMaterial3D_mpu7s")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7635t"]
+albedo_color = Color(0.133333, 0.666667, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_pwao8"]
+material = SubResource("StandardMaterial3D_7635t")
+text = "You only get 
+tagged once
+"
+font_size = 39
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgglc"]
+albedo_color = Color(0.92549, 0.917647, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j04wu"]
+material = SubResource("StandardMaterial3D_cgglc")
+size = Vector3(3, 1, 0.1)
+
+[node name="gamejamsign" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_ujr1n")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0371732, 2.18362, -0.0928676)
+mesh = SubResource("TextMesh_pwao8")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21075, 0.0582554)
+mesh = SubResource("TextMesh_pwao8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011183, 2.15174, -0.0057435)
+mesh = SubResource("BoxMesh_j04wu")

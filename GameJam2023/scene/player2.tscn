@@ -1,0 +1,107 @@
+[gd_scene load_steps=13 format=3 uid="uid://dt0vfhhycr6md"]
+
+[ext_resource type="ArrayMesh" uid="uid://0odic4514gc" path="res://assets/phead.mtl.obj" id="1_fklc5"]
+[ext_resource type="Script" path="res://script/player2.gd" id="1_hgpyo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_170q2"]
+height = 2.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dp5kv"]
+albedo_color = Color(0.141176, 0.141176, 0.141176, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t3k8y"]
+material = SubResource("StandardMaterial3D_dp5kv")
+height = 0.65
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nd5hn"]
+albedo_color = Color(0.133333, 0.929412, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_688ua"]
+material = SubResource("StandardMaterial3D_nd5hn")
+outer_radius = 0.4
+ring_segments = 30
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxss5"]
+albedo_color = Color(0.133333, 0.929412, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_4gnf7"]
+material = SubResource("StandardMaterial3D_xxss5")
+inner_radius = 0.3
+outer_radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ruv2x"]
+albedo_color = Color(0.133333, 0.929412, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_1gm8v"]
+material = SubResource("StandardMaterial3D_ruv2x")
+inner_radius = 0.023
+outer_radius = 0.085
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6cghy"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/sync = true
+properties/1/watch = false
+properties/2/path = NodePath("Camera3D:rotation")
+properties/2/spawn = true
+properties/2/sync = true
+properties/2/watch = false
+
+[node name="player2" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.5, 0)
+script = ExtResource("1_hgpyo")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999276, -0.032262, -0.0201789, 0.0317809, 0.999213, -0.0237213, 0.0209283, 0.0230628, 0.999515, 0.0971854, 1, -0.324524)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101826, 0.125099, 0.0894791)
+shape = SubResource("CapsuleShape3D_170q2")
+
+[node name="body" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.083243, 0, 0.996529, 0, 1, 0, -0.996529, 0, 0.083243, 0.0984222, 0.450021, 0.0896984)
+mesh = SubResource("CylinderMesh_t3k8y")
+
+[node name="body2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.083243, 0, 0.996529, 0, 1, 0, -0.996529, 0, 0.083243, 0.0984222, -0.404473, 0.0896984)
+mesh = SubResource("CylinderMesh_t3k8y")
+skeleton = NodePath("../body")
+
+[node name="Phead_mtl" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.083243, 0, 0.996529, 0, 1, 0, -0.996529, 0, 0.083243, 0.0984222, 0.845353, 0.0896984)
+mesh = ExtResource("1_fklc5")
+
+[node name="ring1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.083243, 0, 0.996529, 0, 1, 0, -0.996529, 0, 0.083243, 0.0984222, -0.830124, 0.0896984)
+mesh = SubResource("TorusMesh_688ua")
+
+[node name="ring2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.083243, 0, 0.996529, 0, 1, 0, -0.996529, 0, 0.083243, 0.0984222, 0.0150261, 0.0896984)
+mesh = SubResource("TorusMesh_688ua")
+skeleton = NodePath("../ring1")
+
+[node name="ring3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.083243, 0, 0.996529, 0, 1, 0, -0.996529, 0, 0.083243, 0.0999075, -0.976216, 0.0865673)
+mesh = SubResource("TorusMesh_4gnf7")
+
+[node name="eye1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.190091, -0.463628, 0.865398, 0.890558, -0.452458, -0.0467814, 0.413245, 0.761795, 0.498896, 0.275137, 1.09245, -0.315726)
+mesh = SubResource("TorusMesh_1gm8v")
+skeleton = NodePath("../MultiplayerSynchronizer")
+
+[node name="eye2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.195618, 0.430718, 0.881031, 0.910496, -0.413518, 1.9849e-08, 0.364322, 0.802175, -0.473058, -0.0980764, 1.08494, -0.302246)
+mesh = SubResource("TorusMesh_1gm8v")
+skeleton = NodePath("../MultiplayerSynchronizer")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_6cghy")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0962293, -1.11883, 0.0779465)
+light_color = Color(1, 0.278431, 0.835294, 1)
+light_energy = 16.0

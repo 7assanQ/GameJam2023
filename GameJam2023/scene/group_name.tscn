@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://do2xf56xjxxhx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_322ii"]
+albedo_color = Color(0.894118, 0.207843, 0.8, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_po5sv"]
+material = SubResource("StandardMaterial3D_322ii")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p5jl7"]
+albedo_color = Color(0.133333, 0.666667, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_fe5xv"]
+material = SubResource("StandardMaterial3D_p5jl7")
+text = "AAA games Studio"
+font_size = 39
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsjl3"]
+albedo_color = Color(0.92549, 0.917647, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dac2v"]
+material = SubResource("StandardMaterial3D_nsjl3")
+size = Vector3(3.5, 0.5, 0.1)
+
+[node name="group_name" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_po5sv")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0371732, 1.94627, -0.0928676)
+mesh = SubResource("TextMesh_fe5xv")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96503, 0.0582554)
+mesh = SubResource("TextMesh_fe5xv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011183, 1.89098, -0.0057435)
+mesh = SubResource("BoxMesh_dac2v")
