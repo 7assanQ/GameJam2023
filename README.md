@@ -18,7 +18,7 @@ you only get one___
 ---
 
 **check how the game looks like** 
-lick on the link then click on View raw
+- click on the link then click on View raw
 [gameplay.mp4](media/gameplay.mp4)
 
 ---
