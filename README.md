@@ -18,16 +18,17 @@ you only get one___
 ---
 
 **check how the game looks like** 
+lick on the link then click on View raw
 [gameplay.mp4](media/gameplay.mp4)
 
 ---
 
 **player controls**
 
-Esc -> exit the game
-W A S D -> to walk
-space bar -> to jump
-mouse left click -> to hit with the stick (only the host have a futuristic stick)
-moving mouse cursor -> to move the camera
+- Esc -> exit the game
+- W A S D -> to walk
+- Space bar -> to jump
+- Mouse left click -> to hit with the stick (only the host have a futuristic stick)
+- Moving mouse cursor -> to move the camera
 
 ---
